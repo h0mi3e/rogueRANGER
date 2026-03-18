@@ -39,14 +39,11 @@ class VMSandboxDetector:
         self.check_cpu_timing()
         self.check_hypervisor_cpuid()
         self.check_mac_vendor()
-        self.check_smbios_tables()
         self.check_disk_geometry()
         self.check_pci_devices()
-        self.check_acpi_tables()
         
         # Sandbox Detection
         self.check_sandbox_artifacts()
-        self.check_analysis_processes()
         self.check_network_latency()
         self.check_user_interaction()
         self.check_system_uptime()
@@ -57,7 +54,6 @@ class VMSandboxDetector:
         self.check_debugger_presence()
         self.check_ptrace()
         self.check_proc_status()
-        self.check_breakpoints()
         
         # Calculate confidence score
         self.calculate_confidence()
@@ -446,4 +442,5 @@ class VMSandboxDetector:
         print(f"[VM DETECT] Confidence score: {confidence:.1f}")
         print(f"[VM DETECT] VM indicators: {self.detection_results['vm_indicators']}")
         print(f"[VM DETECT] Sandbox indicators: {self.detection_results['sandbox_indicators']}")
-        print(f"[VM DETECT]
+        print(f"[VM DETECT] Debugger indicators: {self.detection_results['debugger_indicators']}")
+        print(f"[VM DETECT] Analysis tools: {self.detection_results['analysis_tools']}")
